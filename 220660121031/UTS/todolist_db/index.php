@@ -1,4 +1,13 @@
 <?php
+// index.php
+
+/**
+ * File ini adalah titik awal dari aplikasi.
+ *
+ * Ia menggunakan kelas TodoController untuk menangani berbagai aksi
+ * dan kemudian merender tampilan dengan daftar tugas.
+ */
+
 // Memanggil file TodoController.php untuk menggunakan class TodoController
 require_once 'controllers/TodoController.php';
 
@@ -10,10 +19,9 @@ switch ($action) {
     case 'add':
         // Dapatkan tugas dari request
         $task = $_POST['task'] ?? '';
-        $deadline = $_POST['deadline'] ?? '';
 
         // Tambahkan tugas ke daftar
-        $controller->add($task, $deadline);
+        $controller->add($task);
         break;
     case 'complete':
         // Dapatkan id dari request

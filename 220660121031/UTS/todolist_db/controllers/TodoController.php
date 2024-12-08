@@ -1,5 +1,5 @@
 <?php
-
+// controllers/TodoController.php
 // Memanggil file TodoModel.php untuk menggunakan class TodoModel
 require_once 'models/TodoModel.php';
 /**
@@ -32,8 +32,8 @@ class TodoController {
      * @param string $task Teks dari tugas
      * @return array Todo yang baru dibuat
      */
-    public function add($task, $deadline) {
-        return $this->model->createTodo($task, $deadline);
+    public function add($task) {
+        return $this->model->createTodo($task);
     }
 
     /**

@@ -1,4 +1,5 @@
 <?php
+// models/TodoModel.php
 
 require_once 'config/Database.php';
 
@@ -44,11 +45,10 @@ class TodoModel {
      * @param string $task Teks dari tugas
      * @return boolean
      */
-    public function createTodo($task, $deadline) {
-        $query = "INSERT INTO " . $this->table_name . " (task, deadline) VALUES (:task, :date)";
+    public function createTodo($task) {
+        $query = "INSERT INTO " . $this->table_name . " (task) VALUES (:task)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":task", $task);
-        $stmt->bindParam(":date", $deadline);
         return $stmt->execute();
     }
 
